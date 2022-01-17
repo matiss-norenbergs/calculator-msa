@@ -1,9 +1,8 @@
 function App() {
   return (
-    <div className="App">
-      <div className="content">
-        <h1>The calculator!</h1>
-      </div>
+    <div className="content">
+      <h1>The calculator!</h1>
+      <h2>Hello matis :D</h2>
     </div>
   );
 }
