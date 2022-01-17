@@ -1,7 +1,18 @@
+import Button from "./components/Button";
+import Screen from "./components/Screen";
+
 function App() {
   return (
-    <div className="App">
-      <h1>The calculator!</h1>
+    <div className="content">
+      <div className="calc">
+        <div className="screen">
+          <Screen />
+        </div>
+
+        <div className="buttons">
+          <Button />
+        </div>
+      </div>
     </div>
   );
 }
