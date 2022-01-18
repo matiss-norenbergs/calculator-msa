@@ -8,23 +8,17 @@ function App() {
   });
 
   const screenUpdate = (e) => {
-    if(state.screen === 0){
+    console.log(e.target.getAttribute('btn-name'))
+    if(state.screen === 0 && !Number.isNaN(e.target.value * 1)){ //converting string to a number by multiplying it, then checking for a number value
       setState({
         screen: e.target.value
       })
+      // console.log('Is a number: ' + !Number.isNaN(e.target.value * 1))
     }else if(e.target.value === '='){
       console.log(state.screen+'='+eval(state.screen))
       setState({
         screen: eval(state.screen)
       })
-      /*if(state.screen.slice(-1) === '/' || state.screen.slice(-1) === '*' || state.screen.slice(-1) === '-' || state.screen.slice(-1) === '+' || state.screen.slice(-1) === '.'){
-        console.log('nyooo!')
-      }else{
-        console.log(state.screen+'='+eval(state.screen))
-        setState({
-          screen: eval(state.screen)
-        })
-      }*/
     }else if(e.target.value === 'clear'){
       setState({
         screen: 0
