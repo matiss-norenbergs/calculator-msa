@@ -7,11 +7,65 @@
   font-family: 'Nunito', sans-serif;
 }
 
+:root{
+  --accent: cyan; 
+}
+
+body{
+  background: #23272A;
+}
+
 .content{
   padding: 0 13%;
   padding-top: 5rem;
 }
 
-.content h1{
-  text-align: center;
+.content .calc{
+  width: 400px;
+  margin: 0 auto;
+  background: #bbb;
+  border: 3px solid var(--accent);
+}
+
+.content .calc .screen{
+  text-align: right;
+  width: 100%;
+  background: #fff;
+}
+
+.content .calc .screen p{
+  line-height: 100px;
+  font-size: 4rem;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.content .calc .buttons{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .calc .buttons .btn{
+  font-size: 3rem;
+  line-height: 5.5rem;
+  min-width: 25%;
+  font-weight: bold;
+  border: 1px solid var(--accent);
+  background: #eee;
+}
+
+.content .calc .buttons .btn:hover{
+  background-color: rgb(214, 255, 255);
+}
+
+.content .calc .buttons .btn:active{
+  background-color: rgb(170, 235, 235);
+}
+
+.content .calc .buttons .long{
+  width: 75%;
+}
+
+.content .calc .buttons .mid{
+  width: 50%;
 }
