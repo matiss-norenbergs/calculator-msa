@@ -5,7 +5,7 @@ const Button = (props) => {
     return(
         <>
         {btns.map((btn) => (
-            <button className={btn === 'clear' ? 'btn long' : (btn === 0 ? 'btn mid' : 'btn')} onClick={props.func()} key={key++} value={btn} btn-name={"Button: " + btn}>{ btn }</button>
+            <button className={btn === 'clear' ? 'btn long' : (btn === 0 ? 'btn mid' : 'btn')} onClick={props.func()} key={key++} value={btn} btn-name={!isNaN(btn) || btn==='.' ? 'number' : (btn === 'clear' ? 'clear' : (btn === '=' ? 'result' : 'sign'))}>{ btn }</button>
         ))}
         </>
     )
