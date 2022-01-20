@@ -10,6 +10,16 @@ function App() {
     numSet: false
   });
 
+  const btns = [
+    {value: 'clear', symb: 'clear'}, {value: '/', symb: '\u00f7'}, {value: 7, symb: 7}, {value: 8, symb: 8}, 
+    {value: 9, symb: 9}, {value: '*', symb: '\u00D7'}, {value: 4, symb: 4}, {value: 5, symb: 5}, 
+    {value: 6, symb: 6}, {value: '-', symb: '-'}, {value: 1, symb: 1}, {value: 2, symb: 2}, 
+    {value: 3, symb: 3}, {value: '+', symb: '+'}, {value: 0, symb: 0}, {value: '.', symb: '.'}, 
+    {value: '=', symb: '='}
+  ];
+  
+  var key = 0;
+
   const screenUpdate = (e) => {
     var func = e.target.getAttribute('btn-name');
     var val = e.target.value;
@@ -100,24 +110,12 @@ function App() {
           // console.log(dec);
           // console.log(lastDigit)
         }while(lastDigit === 0 || lastDigit === '0');
-        setState({
-          screen: dec,
-          comma: false,
-          numSet: false
-        })
+        setState({ screen: dec, comma: false, numSet: false })
       }else{
-        setState({
-          screen: dec,
-          comma: false,
-          numSet: false
-        })
+        setState({ screen: dec, comma: false, numSet: false })
       }
     }else{
-      setState({
-        screen: dec,
-        comma: false,
-        numSet: false
-      })
+      setState({ screen: dec, comma: false, numSet: false })
     }
     console.log(state.screen + '=' + dec)
     return dec
@@ -131,7 +129,16 @@ function App() {
         </div>
 
         <div className="buttons">
-          <Button func={() => screenUpdate} />
+          {btns.map((btn) => (
+              <Button 
+                className={btn.value === 'clear' ? 'btn long' : (btn.value === 0 ? 'btn mid' : 'btn')} 
+                onClick={() => screenUpdate} 
+                key={key++} 
+                value={btn.value} 
+                btnName={!isNaN(btn.value) || btn.value==='.' ? 'number' : (btn.value === 'clear' ? 'clear' : (btn.value === '=' ? 'result' : 'sign'))} 
+                symbol={btn.symb}
+              />
+          ))}
         </div>
       </div>
     </div>

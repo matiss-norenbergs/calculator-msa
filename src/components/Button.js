@@ -1,13 +1,7 @@
-const Button = (props) => {
-    const btns = ['clear', '/', 7, 8, 9, '*', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
-    var key = 1;
+const Button = ({ className, value, onClick, btnName, symbol }) => {
 
     return(
-        <>
-        {btns.map((btn) => (
-            <button className={btn === 'clear' ? 'btn long' : (btn === 0 ? 'btn mid' : 'btn')} onClick={props.func()} key={key++} value={btn} btn-name={!isNaN(btn) || btn==='.' ? 'number' : (btn === 'clear' ? 'clear' : (btn === '=' ? 'result' : 'sign'))}>{ btn }</button>
-        ))}
-        </>
+        <button className={ className } onClick={onClick()} value={value} btn-name={ btnName }>{ symbol }</button>
     )
 }
 
