@@ -92,7 +92,12 @@ function App() {
       })
     }else if(func === 'result'){
       // console.log('-----getting result: ');
-      getResult();
+      lastChar = state.screen.charAt(state.screen.length -1);
+      if(lastChar !=='.'){
+        getResult();
+      }else{
+        return
+      }
     }else{
       console.log('Something\'s wrong!');
     }
