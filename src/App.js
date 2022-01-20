@@ -62,26 +62,31 @@ function App() {
       }
     }else if(func === 'sign'){
       // console.log('-----sign: ' + val);
-      if(state.numSet === false){
-        setState({
-          ...state,
-          screen: state.screen + val,
-          numSet: true,
-          comma: false
-        })
-      }else{
-        var lastChar = state.screen.charAt(state.screen.length -1);
-        if(lastChar === '/' || lastChar === '*' || lastChar === '-' || lastChar === '+'){
+      var lastChar = state.screen.charAt(state.screen.length -1);
+      if(lastChar !== '.'){
+        if(state.numSet === false){
           setState({
             ...state,
-            screen: state.screen.slice(0, -1) + val
+            screen: state.screen + val,
+            numSet: true,
+            comma: false
           })
         }else{
-          var x = getResult();
-          setState({
-            screen: x + val
-          })
+          lastChar = state.screen.charAt(state.screen.length -1);
+          if(lastChar === '/' || lastChar === '*' || lastChar === '-' || lastChar === '+'){
+            setState({
+              ...state,
+              screen: state.screen.slice(0, -1) + val
+            })
+          }else{
+            var x = getResult();
+            setState({
+              screen: x + val
+            })
+          }
         }
+      }else{
+        return
       }
     }else if(func === 'clear'){
       // console.log('-----clearing screen: ' + val);
