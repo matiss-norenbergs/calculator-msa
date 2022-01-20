@@ -120,12 +120,12 @@ function App() {
           // console.log(dec);
           // console.log(lastDigit)
         }while(lastDigit === 0 || lastDigit === '0');
-        setState({ screen: dec, comma: false, numSet: false })
+        setState({ screen: dec.toString(), comma: false, numSet: false })
       }else{
-        setState({ screen: dec, comma: false, numSet: false })
+        setState({ screen: dec.toString(), comma: false, numSet: false })
       }
     }else{
-      setState({ screen: dec, comma: false, numSet: false })
+      setState({ screen: dec.toString(), comma: false, numSet: false })
     }
     console.log(state.screen + '=' + dec)
     return dec
