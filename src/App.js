@@ -91,7 +91,7 @@ function App() {
         }
         break;
       case 'result':
-          if(state.num !== '' && state.sign !== '' && state.screen !== '0'){
+          if(state.num !== '' && state.sign !== '' && state.screen !== '.'){
             getResult();
           }
         break;
