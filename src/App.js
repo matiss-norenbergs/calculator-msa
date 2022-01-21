@@ -58,8 +58,8 @@ function App() {
         }
         break;
       case 'sign':
-        var lastChar = state.screen.toString().charAt(state.screen.length -1);
-        if(lastChar !== '.' || lastChar !== '0'){
+        var lastChar = (state.screen.toString()).charAt(state.screen.length -1);
+        if(lastChar !== '.'){
           if(state.numSet === false){
             setState({
               ...state,
