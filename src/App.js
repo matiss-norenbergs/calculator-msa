@@ -111,7 +111,12 @@ function App() {
   }
 
   const getResult = () => {
-    var dec = evaluate(state.num + (state.sign === '÷' ? '/' : (state.sign === '×' ? '*' : (state.sign === '+' ? '+' : '-'))) + state.screen);
+    var dec = 0;
+    if(state.screen.toString() === '0' && state.sign === '÷'){
+      dec = 0;
+    }else{
+      dec = evaluate(state.num + (state.sign === '÷' ? '/' : (state.sign === '×' ? '*' : (state.sign === '+' ? '+' : '-'))) + state.screen);
+    }
     var realValue = evaluate(state.num + (state.sign === '÷' ? '/' : (state.sign === '×' ? '*' : (state.sign === '+' ? '+' : '-'))) + state.screen);
     var aV = [state.num, state.sign, state.screen];
     if(dec % 1 !== 0){
