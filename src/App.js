@@ -12,7 +12,7 @@ function App() {
     numSet: false
   });
 
-  const btns = ['clear', '÷', 7, 8, 9, '×', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
+  const btns = ['clear', '+/-', 'x²',  '√x', '÷', 7, 8, 9, '×', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
   
   var key = 0;
 
@@ -105,6 +105,31 @@ function App() {
         })
         console.clear();
         break;
+        case 'operation':
+        if(val==='x²'){
+          setState({
+            ...state,
+            screen: evaluate(Math.pow(state.screen, 2))
+          })
+        }else if(val==='√x'){
+          if(evaluate(state.screen)<0){
+            setState({
+              ...state,
+              screen: 0
+            })
+          }else{
+            setState({
+              ...state,
+              screen: evaluate(Math.sqrt(state.screen))
+            })
+          }
+        }else{
+          setState({
+            ...state,
+            screen: evaluate(state.screen + '*-1')
+          })
+        }
+        break;
       default:
         console.log('Unknown functions!')
     }
@@ -168,7 +193,7 @@ function App() {
               <Button 
                 className={btn === 'clear' ? 'btn long' : (btn === 0 ? 'btn mid' : 'btn')} 
                 onClick={() => screenUpdate} 
-                btnName={!isNaN(btn) || btn==='.' ? 'number' : (btn === 'clear' ? 'clear' : (btn === '=' ? 'result' : 'sign'))}
+                btnName={!isNaN(btn) || btn==='.' ? 'number' : (btn === 'clear' ? 'clear' : (btn === '=' ? 'result' : (btn === 'x²'|| btn ==='√x' || btn === '+/-' ? 'operation' : 'sign')))}
                 key={key++} 
                 value={btn} 
               />
