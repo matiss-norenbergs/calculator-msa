@@ -1,6 +1,6 @@
-const Screen = () => {
+const Screen = (values) => {
     return(
-        <p>0</p>
+        <p>{ values.screen }</p>
     )
 }
 
